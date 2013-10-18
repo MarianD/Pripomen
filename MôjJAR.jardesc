@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="WINDOWS-1250" standalone="no"?>
+<jardesc>
+    <jar path="C:/Moje programy/Pripomen+src.jar"/>
+    <options buildIfNeeded="true" compress="true" descriptionLocation="/Pripomen/MôjJAR.jardesc" exportErrors="true" exportWarnings="true" includeDirectoryEntries="true" overwrite="false" saveDescription="true" storeRefactorings="false" useSourceFolders="false"/>
+    <storedRefactorings deprecationInfo="true" structuralOnly="false"/>
+    <selectedProjects/>
+    <manifest generateManifest="true" mainClassHandleIdentifier="=Pripomen/src&lt;sk.solidsoft.pripomen{PripomenUI.java[PripomenUI" manifestLocation="" manifestVersion="1.0" reuseManifest="false" saveManifest="false" usesManifest="true">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="true" exportOutputFolder="false">
+        <javaElement handleIdentifier="=Pripomen"/>
+        <javaElement handleIdentifier="=Rôzne/&lt;sk.solidsoft.internationalization"/>
+    </selectedElements>
+</jardesc>

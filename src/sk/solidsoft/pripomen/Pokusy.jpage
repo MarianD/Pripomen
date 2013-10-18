@@ -1,0 +1,26 @@
+Locale loc = Locale.getDefault();
+
+ResourceBundle rb = ResourceBundle.getBundle("resources.PripomenUI", loc);
+
+rb.getString("ikona");
+
+System.out.println(BreakIterator.getAvailableLocales())
+
+for (Locale loc : BreakIterator.getAvailableLocales())
+	System.out.println(loc.getDisplayCountry() + ", " + loc.getDisplayLanguage());
+
+for (Locale loc : BreakIterator.getAvailableLocales())
+	System.out.println(loc.getLanguage() + ", " + loc.getCountry());
+
+System.out.println(new OutputStreamWriter(new ByteArrayOutputStream()).getEncoding());
+
+System.out.println(Character.codePointAt("ù", 0));
+
+Mixer.Info mixerinfos[] = AudioSystem.getMixerInfo();
+for (Mixer.Info mi : mixerinfos) {
+	System.out.println("Meno:\t" + mi.getName() + 
+			"\nPopis:\t" + mi.getDescription() + 
+			"\nDodal:\t" + mi.getVendor() + 
+			"\nVerzia:\t" + mi.getVersion());
+	System.out.println("-------------------------------------------------------");
+}
