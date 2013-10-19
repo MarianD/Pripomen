@@ -148,8 +148,8 @@ final class Lokalizacia {
 		dalsiePripomenutie	= getString("NextReminder");			// Text: Ïalšie pripomenutie bude o %d %s..
 		zmenaCasuNastav		= getString("YouChangedTime");			// Text: Zmenili ste nastavenie èasu pripomínania.;
 
-		nastavenyCas		= getString("TimeToAlarm");				// Text: Nastavenı èas:
-		intervalOpak		= getString("PeriodOfReminder");		// Text: Interval opakovania:
+		nastavenyCas		= getString("TimeToAlarm") + " ";		// Text: Nastavenı èas:
+		intervalOpak		= getString("PeriodOfReminder") + " ";	// Text: Interval opakovania:
 		
 		skonciProgram		= getString("ExitProgram");				// Text: Skonèi program
 		naozajSoncit		= getString("AreYouSureToExit");		// Text: Naozaj chcete skonèi pripomínanie

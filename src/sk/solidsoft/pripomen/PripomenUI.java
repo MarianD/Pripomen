@@ -240,6 +240,11 @@ import javax.swing.GroupLayout.SequentialGroup;
  * 
  * 25.08.2011: V tejto triede v metóde main() pripravené (opoznámkované) použitie iného Look and Feel. V triede DlgPripomen()
  * 			   v súvislosti s tým v metóde NastavVlastnosti nastavené natvrdo písmo a biele pozadie.
+ * 
+ * 19.10.2013: Lokalizaèné súbory: Namiesto uvedenia koncovej medzery ("\ ") v k¾úèových slovách TimeToAlarm 
+ *			   a PeriodOfReminder táto pridaná programovo (v triede Lokalizacia)
+ * 			   Prechod z kódovania cp1250 na utf8 pre lokalizaèné súbory (úprava urobená v triede
+ * 			   sk.solidsoft.internationalization.MyControl)
  */
 
 public final class PripomenUI extends JFrame {
