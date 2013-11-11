@@ -18,11 +18,10 @@ import javax.swing.Timer;
  */
 final class Const {
 	
-//	static final String   VERZIA_END        = " 34  (23. 8. 2011)";
-	static final String   VERZIA_END        = " 35  (19. 10. 2013)";
-	static final String   COPYRIGHT	   	    = "Copyright © RNDr. Marián Déneš, SolidSoft, 2009-2012";
-//	static final String   COPYRIGHT	   	    = "Copyright © RNDr. Marián Déneš, SolidSoft, 2012";
+	static final String   VERZIA_END        = " 36  (11. 11. 2013)";
+	static final String   COPYRIGHT	   	    = "Copyright © RNDr. Marián Déneš, SolidSoft, 2009-2013";
 	static final String   LICENCE_BEGIN     = "            ";
+	static final String   TRANSLATOR_BEGIN  = "                    ";
 	static final String	  EOL	            = System.getProperty("line.separator");
 	static final String   TAB               = "          ";
 

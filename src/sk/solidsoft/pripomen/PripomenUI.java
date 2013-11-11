@@ -245,6 +245,8 @@ import javax.swing.GroupLayout.SequentialGroup;
  *			   a PeriodOfReminder táto pridaná programovo (v triede Lokalizacia)
  * 			   Prechod z kódovania cp1250 na utf8 pre lokalizaèné súbory (úprava urobená v triede
  * 			   sk.solidsoft.internationalization.MyControl)
+ * 
+ * 11.11.2013: Do hlavného okna pridané meno prekladate¾a do príslušného jazyka 
  */
 
 public final class PripomenUI extends JFrame {
@@ -257,6 +259,7 @@ public final class PripomenUI extends JFrame {
 	private static final JLabel 	lblMenitFarby  = new JLabel();
 	private static final JLabel 	lblCopyright   = new JLabel(Const.COPYRIGHT);
 	private static final JLabel 	lblLicence     = new JLabel();
+	private static final JLabel 	lblTranslator  = new JLabel();
 	private static final SystemTray podnos    	   = SystemTray.getSystemTray();
 	private static final PopupMenu 	popup          = new PopupMenu();
 	
@@ -392,7 +395,8 @@ public final class PripomenUI extends JFrame {
 		Const.cmdPocitac 	.setToolTipText(Lokalizacia.infoOPocitaci);
 		Const.cmdUlozit  	.setToolTipText(Lokalizacia.toolTipUlozit);
 	
-		lblLicence				.setText(Lokalizacia.licence);
+		lblLicence			.setText(Lokalizacia.licence);
+		lblTranslator		.setText(Lokalizacia.translator);
 	
 		miObnovit.setLabel		(Lokalizacia.ukazatOkno);
 		miSkoncit.setLabel		(Lokalizacia.skoncit);
@@ -420,6 +424,7 @@ public final class PripomenUI extends JFrame {
 		Const.txtSprava	.setText(Lokalizacia.textPripomienky);
 		lblCopyright	.setFont(lblCopyright.getFont().deriveFont(Font.PLAIN));
 		lblLicence		.setFont(lblLicence.getFont().deriveFont(Font.PLAIN));
+		lblTranslator	.setFont(lblLicence.getFont().deriveFont(Font.PLAIN));
 
 		imgMenitFarby 	  = defaultToolkit.getImage(PripomenUI.class.getResource(Const.FAREBNY_PRUH));
 		imgStalaFarba 	  = defaultToolkit.getImage(PripomenUI.class.getResource(Const.JEDNOFAR_PRUH));
@@ -532,7 +537,8 @@ public final class PripomenUI extends JFrame {
 				.addGroup(farebnaSkupinaVodorovne)
 				.addGroup(casovaSkupinaVodorovne)
 				.addComponent(Const.chkJednorazovo)
-				.addComponent(lblCopyright).addComponent(lblLicence);
+				.addComponent(lblCopyright).addComponent(lblLicence)
+				.addComponent(lblTranslator);
 
 		SequentialGroup vodorovnaSkupina = grpLay.createSequentialGroup();
 
@@ -548,6 +554,7 @@ public final class PripomenUI extends JFrame {
 		ParallelGroup riadok5 = grpLay.createParallelGroup(GroupLayout.Alignment.BASELINE);
 		ParallelGroup riadok6 = grpLay.createParallelGroup(GroupLayout.Alignment.BASELINE);
 		ParallelGroup riadok7 = grpLay.createParallelGroup(GroupLayout.Alignment.BASELINE);
+		ParallelGroup riadok8 = grpLay.createParallelGroup(GroupLayout.Alignment.BASELINE);
 
 		riadok1.addComponent(lblTitulok).addGroup(titulkovaSkupinaZvislo);
 		riadok2.addComponent(lblSprava) .addComponent(Const.txtSprava);
@@ -556,6 +563,7 @@ public final class PripomenUI extends JFrame {
 		riadok5.addComponent(Const.chkJednorazovo);
 		riadok6.addComponent(lblCopyright);
 		riadok7.addComponent(lblLicence);
+		riadok8.addComponent(lblTranslator);
 
 		SequentialGroup zvislaSkupina = grpLay.createSequentialGroup();
 
@@ -563,7 +571,7 @@ public final class PripomenUI extends JFrame {
 				.addGroup(riadok1).addGap(10).addGroup(riadok2).addGap(03)
 				.addGroup(riadok3).addGap(18).addGroup(riadok4).addGap(03)
 				.addGroup(riadok5).addGap(15).addGroup(riadok6).addGap(03)
-				.addGroup(riadok7);
+				.addGroup(riadok7).addGap(03).addGroup(riadok8);
 
 		grpLay.setVerticalGroup(zvislaSkupina);
 	}

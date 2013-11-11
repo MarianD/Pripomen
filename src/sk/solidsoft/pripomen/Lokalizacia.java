@@ -38,6 +38,7 @@ final class Lokalizacia {
 
 	static  String	  verzia;         		// Text: verzia nn  (dd. mm. rrrr)
 	static  String 	  licence; 	   			// Text: "            Program mÙûete pouûÌvaù aj öÌriù zadarmo.";
+	static  String 	  translator; 	   		// Text: "            Preklad do slovenËiny: Mari·n DÈneö.";
 	
 	static  String    hodina;				// Text: hodina
 	static  String    hodiny;				// Text: hodiny
@@ -130,6 +131,8 @@ final class Lokalizacia {
 		verzia			   += Const.VERZIA_END;
 		licence			    = getString("License");					// Text: Program mÙûete pouûÌvaù a öÌriù zadarmo.
 		licence 		    = Const.LICENCE_BEGIN + licence;
+		translator		    = getString("Translator");				// Text: Preklad do slovenËiny: Mari·n DÈneö
+		translator 		    = Const.TRANSLATOR_BEGIN + translator;
 		
 		hodina			    = getString("Hour1");					// Text: hodina
 		hodiny			    = getString("Hours24");					// Text: hodiny
