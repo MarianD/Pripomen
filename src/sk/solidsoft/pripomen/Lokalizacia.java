@@ -6,8 +6,6 @@ package sk.solidsoft.pripomen;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import sk.solidsoft.internationalization.MyControl;
-
 /**
  * @author Marián Déneš
  *
