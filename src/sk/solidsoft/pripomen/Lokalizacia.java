@@ -63,6 +63,7 @@ final class Lokalizacia {
 	static  String    ntePripomenutie;  	// Text: (Toto je %d. pripomenutie)
 	static  String    poslPripomenutie;		// Text: (Toto je %d. a posledné pripomenutie)";
 	
+	static  String	  toolTipJazyk;         // Text: Nastavenie jazyka
 	static  String	  toolTipUlozit;        // Text: Uloží texty a ostatné nastavenia pripomienky ako predvolené
 
 	static  String    infoOPocitaci;		// Text: Informácie o Vašom poèítaèi;
@@ -157,6 +158,7 @@ final class Lokalizacia {
 		ntePripomenutie		= getString("NthReminder");				// Text: (Toto je %d. pripomenutie)
 		poslPripomenutie	= getString("LastReminder");			// Text: (Toto je %d. a posledné pripomenutie)";
 
+		toolTipJazyk		= getString("ToolTipLanguage");			// Text: Výber jazyka (Language selection)
 		toolTipUlozit		= getString("ToolTipSave");				// Text: Uloží texty a ostatné nastavenia pripomienky ako predvolené
 
 		infoOPocitaci		= getString("InfoAboutComputer");		// Text: Informácie o Vašom poèítaèi;

@@ -247,6 +247,7 @@ import javax.swing.GroupLayout.SequentialGroup;
  * 			   sk.solidsoft.internationalization.MyControl)
  * 
  * 11.11.2013: Do hlavnÈho okna pridanÈ meno prekladateæa do prÌsluönÈho jazyka 
+ * 14.11.2013: Do hlavnÈho okna pridan˝ tooltip tlaËidlu pre v˝ber jazyka 
  */
 
 public final class PripomenUI extends JFrame {
@@ -297,7 +298,7 @@ public final class PripomenUI extends JFrame {
 		nastavLoklizovaneTexty();							// LokalizovanÈ vlastnosti ovl·dacÌch prvkov
 		rozmiestniPrvky();									// Rozmiestnenie ovl·dacÌch prvkov
 		pridajObsluhy();									// Obsluhy udalostÌ ovl·dacÌch prvkov
-		pack();												// Nastavenie minim·lnej veækosti okna
+		pack();												// Nastavenie na minim·lnu veækosù okna
 		
 		setLocationRelativeTo(null);						// Okno do stredu obrazovky
 
@@ -392,6 +393,7 @@ public final class PripomenUI extends JFrame {
 		Const.cboModel		.addElement(Lokalizacia.minut);
 		Const.cboModel		.addElement(Lokalizacia.sekund);
 		Const.cboCasJednotka.setSelectedIndex(index);
+		Const.cmdJazyk	   	.setToolTipText(Lokalizacia.toolTipJazyk);
 		Const.cmdPocitac 	.setToolTipText(Lokalizacia.infoOPocitaci);
 		Const.cmdUlozit  	.setToolTipText(Lokalizacia.toolTipUlozit);
 	

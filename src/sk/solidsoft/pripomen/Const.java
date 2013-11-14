@@ -18,7 +18,7 @@ import javax.swing.Timer;
  */
 final class Const {
 	
-	static final String   VERZIA_END        = " 36  (11. 11. 2013)";
+	static final String   VERZIA_END        = " 37  (14. 11. 2013)";
 	static final String   COPYRIGHT	   	    = "Copyright © RNDr. Marián Déneš, SolidSoft, 2009-2013";
 	static final String   LICENCE_BEGIN     = "            ";
 	static final String   TRANSLATOR_BEGIN  = "                    ";
