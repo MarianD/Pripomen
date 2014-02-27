@@ -18,8 +18,8 @@ import javax.swing.Timer;
  */
 final class Const {
 	
-	static final String   VERZIA_END        = " 37  (14. 11. 2013)";
-	static final String   COPYRIGHT	   	    = "Copyright © RNDr. Mari·n DÈneö, SolidSoft, 2009-2013";
+	static final String   VERZIA_END        = " 38  (26. 2. 2014)";
+	static final String   COPYRIGHT	   	    = "Copyright © RNDr. Mari·n DÈneö, SolidSoft, 2009-2014";
 	static final String   LICENCE_BEGIN     = "            ";
 	static final String   TRANSLATOR_BEGIN  = "                    ";
 	static final String	  EOL	            = System.getProperty("line.separator");
@@ -100,6 +100,7 @@ final class Const {
 	
 	static final Locale[]  LOKALITA 		=  {new Locale("sk", "SK"), 
 												new Locale("cs", "CZ"), 
+												new Locale("no", "NO"), 
 												new Locale("en", "US")		// AnglickÈ musÌ byù poslednÈ
 												};							
 	static final int       POCET_LOKALIT    =  LOKALITA.length;

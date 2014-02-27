@@ -4,13 +4,20 @@ ResourceBundle rb = ResourceBundle.getBundle("resources.PripomenUI", loc);
 
 rb.getString("ikona");
 
-System.out.println(BreakIterator.getAvailableLocales())
+System.out.println(BreakIterator.getAvailableLocales());
 
+// Len texty krajín a jazykov
 for (Locale loc : BreakIterator.getAvailableLocales())
 	System.out.println(loc.getDisplayCountry() + ", " + loc.getDisplayLanguage());
 
+// Len skratky krajín a jazykov
 for (Locale loc : BreakIterator.getAvailableLocales())
 	System.out.println(loc.getLanguage() + ", " + loc.getCountry());
+
+// Texty aj skratky krajín a jazykov
+for (Locale loc : BreakIterator.getAvailableLocales())
+	System.out.println(loc.getDisplayCountry() + ", " + loc.getDisplayLanguage() + ": " +
+			loc.getLanguage() + "-" + loc.getCountry());
 
 System.out.println(new OutputStreamWriter(new ByteArrayOutputStream()).getEncoding());
 
