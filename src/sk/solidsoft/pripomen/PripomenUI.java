@@ -248,6 +248,8 @@ import javax.swing.GroupLayout.SequentialGroup;
  * 
  * 11.11.2013: Do hlavného okna pridané meno prekladate¾a do príslušného jazyka 
  * 14.11.2013: Do hlavného okna pridaný tooltip tlaèidlu pre výber jazyka 
+ * 26.02.2014: Pridaná nórska lokalizácia (autor: Michael Sagnes, kvikk92@gmail.com) 
+ * 30.03.2014: Tlaèidlo pre zmenu jazyka nahradené po¾om so zoznamom 
  */
 
 public final class PripomenUI extends JFrame {
@@ -289,6 +291,7 @@ public final class PripomenUI extends JFrame {
 
 //		Locale.setDefault(new Locale("sk", "SK"));			// Len pre testovanie
 //		Locale.setDefault(new Locale("cs", "CZ"));			// Len pre testovanie
+//		Locale.setDefault(new Locale("no", "NO"));			// Len pre testovanie
 //		Locale.setDefault(new Locale("fr", "FR"));			// Len pre testovanie
 		
 		origLokalita = Locale.getDefault();					// Ešte predtým, než ju používate¾ zmení
@@ -374,7 +377,6 @@ public final class PripomenUI extends JFrame {
 		lblSprava 			.setText(Lokalizacia.menovkaTextu);
 		
 		Const.lblCasOpak    .setText(Lokalizacia.opakovane);
-		Const.cmdJazyk	   	.setText(Lokalizacia.getLocale().getLanguage());
 		Const.chkMenitFarbu .setText(Lokalizacia.menitFarbu);
 		Const.chkJednorazovo.setText(Lokalizacia.pripomenutLenRaz);
 		Const.cmdSpustit	.setText(Const.cmdSpustit.getActionCommand() == Const.ACTION_SKONCIT ? 
@@ -393,7 +395,7 @@ public final class PripomenUI extends JFrame {
 		Const.cboModel		.addElement(Lokalizacia.minut);
 		Const.cboModel		.addElement(Lokalizacia.sekund);
 		Const.cboCasJednotka.setSelectedIndex(index);
-		Const.cmdJazyk	   	.setToolTipText(Lokalizacia.toolTipJazyk);
+		Const.cboJazyk	   	.setToolTipText(Lokalizacia.toolTipJazyk);
 		Const.cmdPocitac 	.setToolTipText(Lokalizacia.infoOPocitaci);
 		Const.cmdUlozit  	.setToolTipText(Lokalizacia.toolTipUlozit);
 	
@@ -411,6 +413,15 @@ public final class PripomenUI extends JFrame {
 	}
 
 	private void nastavVlastnostiPrvkov() {
+
+		Const.cboJazyk  .setSelectedIndex(Const.POCET_LOKALIT - 1);		// First set the language to English
+		
+		String language = Lokalizacia.getLocale().getLanguage();
+		for (int i = 0; i < Const.POCET_LOKALIT; ++i)					// Trying all supported languages
+			if (language == Const.LOKALITA[i].getLanguage()) {
+				Const.cboJazyk.setSelectedIndex(i);
+				break;
+			}
 
 		Const.txtTitulok.setFont(Const.txtTitulok.getFont().deriveFont(Font.ITALIC));
 		Const.txtTitulok.setPreferredSize(new Dimension(200,Const.txtTitulok
@@ -488,7 +499,7 @@ public final class PripomenUI extends JFrame {
 
 		titulkovaSkupinaVodorovne.addComponent(Const.txtTitulok)
 		        .addGap(13)
-				.addComponent(Const.cmdJazyk)
+				.addComponent(Const.cboJazyk)
 				.addGap(12)
 				.addComponent(Const.cmdUlozit)
 				.addGap(12)
@@ -496,7 +507,7 @@ public final class PripomenUI extends JFrame {
 
 		titulkovaSkupinaZvislo
 				.addComponent(Const.txtTitulok)
-				.addComponent(Const.cmdJazyk)
+				.addComponent(Const.cboJazyk)
 				.addComponent(Const.cmdUlozit)
 				.addComponent(Const.cmdPocitac);
 
@@ -598,7 +609,7 @@ public final class PripomenUI extends JFrame {
 		Const.chkJednorazovo	.addActionListener(chkBoxnListener);
 		Const.chkMenitFarbu 	.addActionListener(chkBoxnListener);
 
-		Const.cmdJazyk    		.addActionListener(cmdButtonListener);
+		Const.cboJazyk    		.addItemListener  (comboBoxListener);
 		Const.cmdPocitac    	.addActionListener(cmdButtonListener);
 		Const.cmdUlozit     	.addActionListener(cmdButtonListener);
 		Const.cmdSpustit   		.addActionListener(cmdButtonListener);

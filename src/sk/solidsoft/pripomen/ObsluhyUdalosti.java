@@ -1,19 +1,20 @@
 package sk.solidsoft.pripomen;
 
 import java.io.*;
-
 import java.awt.Component;
 import java.awt.TrayIcon;
 import java.awt.event.*;
 import java.util.prefs.Preferences;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import static javax.swing.JOptionPane.showConfirmDialog;
 import static javax.swing.JOptionPane.YES_NO_OPTION;
 import static javax.swing.JOptionPane.YES_OPTION;
+
 import javax.swing.Timer;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -61,19 +62,6 @@ final class CmdButtonListener implements ActionListener {
 				spustiCasovac(pripomenUI);
 			}
 			pripomenUI.setExtendedState(JFrame.ICONIFIED);
-		} else if (tlacidlo == Const.cmdJazyk) {
-			//TODO: Pri zmene jazyka sa neprispÙsobuje predvolen˝ titulok a text
-			boolean isEnabled = Const.cmdUlozit.isEnabled();		// Uloûenie stavov tlaËidla "Uloûiù", pretoûe
-			boolean isVisible = Const.cmdUlozit.isVisible();		//  zmena jazyka ho vûdy aktivuje cez TextChangedListener
-			int cisloLokality = Lokalizacia.getLocNumber();
-			
-			cisloLokality = ++cisloLokality % Const.POCET_LOKALIT;
-			Lokalizacia.setLocale(Const.LOKALITA[cisloLokality]);
-			
-			pripomenUI .nastavLoklizovaneTexty();
-			Const      .cmdUlozit.setVisible(isVisible);							// Obnova stavov tlaËidla "Uloûiù
-			Const      .cmdUlozit.setEnabled(isEnabled);
-			
 		} else if (tlacidlo == Const.cmdPocitac) {
 			String textPocitacInfo = 
 						Lokalizacia.infoVerzia + " JRE (Java Runtime Environment):" + EOL + TAB + 
@@ -434,10 +422,29 @@ final class ComboBoxListener implements ItemListener {
 		
 	@Override
 	public void itemStateChanged(ItemEvent e) {
-/*		Object	   zdroj       = e.getSource();
-		Spolocne.pripomienka.setCasJednotka(((JComboBox) (zdroj)).getSelectedIndex());
-*/		
-		Const.cmdUlozit.setVisible(true);		
-		Const.cmdUlozit.setEnabled(true);		
+		Object	   zdroj      = e.getSource();
+		PripomenUI pripomenUI = Staticke.getHlavneOkno(zdroj);
+		JComboBox  comboBox   = (JComboBox) zdroj;
+
+		if (comboBox == Const.cboJazyk) {
+			String item = (String) e.getItem();
+			for (int i = 0; i < Const.POCET_LOKALIT; ++i) {
+				if (item == Const.LANGUAGE[i]) {
+//					//TODO: Pri zmene jazyka sa neprispÙsobuje predvolen˝ titulok a text
+					boolean isEnabled = Const.cmdUlozit.isEnabled();	// Uloûenie stavov tlaËidla "Uloûiù", pretoûe
+					boolean isVisible = Const.cmdUlozit.isVisible();	//  zmena jazyka ho vûdy aktivuje cez TextChangedListener
+					Lokalizacia.setLocale(Const.LOKALITA[i]);
+					
+					pripomenUI .nastavLoklizovaneTexty();
+					Const      .cmdUlozit.setVisible(isVisible);		// Obnova stavov tlaËidla "Uloûiù
+					Const      .cmdUlozit.setEnabled(isEnabled);
+					break;
+				}
+			}
+		}
+		else {
+			Const.cmdUlozit.setVisible(true);		
+			Const.cmdUlozit.setEnabled(true);		
+		}
 	}
 }	

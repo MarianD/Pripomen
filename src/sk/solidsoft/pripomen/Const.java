@@ -18,10 +18,10 @@ import javax.swing.Timer;
  */
 final class Const {
 	
-	static final String   VERZIA_END        = " 38  (26. 2. 2014)";
-	static final String   COPYRIGHT	   	    = "Copyright © RNDr. Mari·n DÈneö, SolidSoft, 2009-2014";
-	static final String   LICENCE_BEGIN     = "            ";
-	static final String   TRANSLATOR_BEGIN  = "                    ";
+	static final String   VERZIA_END        = " 39  (30. 3. 2014)";
+	static final String   COPYRIGHT	   	    = "Copyright © RNDr. Mari·n DÈneö, 2009-2014";
+	static final String   LICENCE_BEGIN     = "";
+	static final String   TRANSLATOR_BEGIN  = "";
 	static final String	  EOL	            = System.getProperty("line.separator");
 	static final String   TAB               = "          ";
 
@@ -82,14 +82,6 @@ final class Const {
 	static final String	  ACTION_SPUSTIT    = "Spustiù";
 	static final String	  ACTION_SKONCIT    = "SkonËiù";
 	static final String	  ACTION_UKAZ_OKNO  = "Uk·û okno";
-/*
-	// S˙visÌ s odstr·nen˝m (moûno doËasne) upozornenÌm v metÛde main() triedy PripomenUI
-	static final String   OTAZKA		    = "                " +
-											 	"Program Pripomen je uû %d-krat spusten˝." +
-											 	Const.EOL + Const.EOL +
-											 	"Chcete popri tom spustiù  œALäIE  (inÈ)  pripomienkovanie?";
-	static final String   TITULOK_OTAZKY    = "Program Pripomen je uû spusten˝";
-*/
 
 	/*
 	 * NelokalizovanÈ reùazce pre "tajn˙" kombin·ciu kl·vesov Ctrl + Home
@@ -104,6 +96,12 @@ final class Const {
 												new Locale("en", "US")		// AnglickÈ musÌ byù poslednÈ
 												};							
 	static final int       POCET_LOKALIT    =  LOKALITA.length;
+	
+	static final String[]  LANGUAGE         =  {new String("Slovak"),		 
+												new String("Czech"),
+												new String("Norwegian"),
+												new String("English"),
+											    };
 
 	static final Pripomienka	 	  pripomienka    = new Pripomienka();
 	static final Timer  			  casovac        = new Timer(0, new CasovacListener());
@@ -118,7 +116,7 @@ final class Const {
 
 	static final JSpinner			  sprCasOpak     = new JSpinner();
 
-	static final JButton			  cmdJazyk       = new JButton();
+	static final JComboBox            cboJazyk       = new JComboBox(LANGUAGE);
 	static final JButton			  cmdPocitac     = new JButton();
 	static final JButton			  cmdUlozit      = new JButton();
 	static final JButton			  cmdSpustit     = new JButton();
