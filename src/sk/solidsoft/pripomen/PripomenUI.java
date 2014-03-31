@@ -248,8 +248,12 @@ import javax.swing.GroupLayout.SequentialGroup;
  * 
  * 11.11.2013: Do hlavného okna pridané meno prekladate¾a do príslušného jazyka 
  * 14.11.2013: Do hlavného okna pridaný tooltip tlaèidlu pre výber jazyka 
- * 26.02.2014: Pridaná nórska lokalizácia (autor: Michael Sagnes, kvikk92@gmail.com) 
- * 30.03.2014: Tlaèidlo pre zmenu jazyka nahradené po¾om so zoznamom 
+ * 26.02.2014: Pridaná nórska lokalizácia (autor: Michael Sagnes, kvikk92@gmail.com)
+ *  
+ * 30.03.2014: Tlaèidlo pre zmenu jazyka nahradené po¾om so zoznamom
+ * 			   texty copyright-u, licencie a mena prekladate¾a zarovnané do¾ava
+ * 
+ * 31.03.2014  Texty copyright-u, licencie a mena prekladate¾a urobené ako jedna skupina
  */
 
 public final class PripomenUI extends JFrame {
@@ -493,7 +497,7 @@ public final class PripomenUI extends JFrame {
 		grpLay.setAutoCreateGaps(true);
 		grpLay.setAutoCreateContainerGaps(true);
 
-		// Skupina pre nastavenie textu titulku a poèítaèa
+		// Skupina pre nastavenie textu titulku, jazyka, ikony uloženia a ikony poèítaèa
 		SequentialGroup titulkovaSkupinaVodorovne = grpLay.createSequentialGroup();
 		ParallelGroup titulkovaSkupinaZvislo	  = grpLay.createParallelGroup(GroupLayout.Alignment.BASELINE);
 
@@ -537,6 +541,14 @@ public final class PripomenUI extends JFrame {
 		farebnaSkupinaZvislo
 				.addComponent(Const.chkMenitFarbu)
 				.addComponent(lblMenitFarby);
+		
+		// Skupina pre copyright, licenciu a meno prekladate¾a
+		SequentialGroup popisnaSkupinaZvislo  = grpLay.createSequentialGroup();
+		
+		popisnaSkupinaZvislo
+				.addComponent(lblCopyright)	.addGap(03)
+				.addComponent(lblLicence)	.addGap(03)
+				.addComponent(lblTranslator);
 
 		// Hlavné ståpce pre rozmiestnenie ovládacích prvkov (a ich skupín)
 		ParallelGroup stlpec1 = grpLay.createParallelGroup(GroupLayout.Alignment.TRAILING);
@@ -565,26 +577,19 @@ public final class PripomenUI extends JFrame {
 		ParallelGroup riadok3 = grpLay.createParallelGroup(GroupLayout.Alignment.BASELINE);
 		ParallelGroup riadok4 = grpLay.createParallelGroup(GroupLayout.Alignment.BASELINE);
 		ParallelGroup riadok5 = grpLay.createParallelGroup(GroupLayout.Alignment.BASELINE);
-		ParallelGroup riadok6 = grpLay.createParallelGroup(GroupLayout.Alignment.BASELINE);
-		ParallelGroup riadok7 = grpLay.createParallelGroup(GroupLayout.Alignment.BASELINE);
-		ParallelGroup riadok8 = grpLay.createParallelGroup(GroupLayout.Alignment.BASELINE);
 
 		riadok1.addComponent(lblTitulok).addGroup(titulkovaSkupinaZvislo);
 		riadok2.addComponent(lblSprava) .addComponent(Const.txtSprava);
 		riadok3.addGroup	(farebnaSkupinaZvislo);
 		riadok4.addComponent(Const.lblCasOpak).addGroup(casovaSkupinaZvislo);
 		riadok5.addComponent(Const.chkJednorazovo);
-		riadok6.addComponent(lblCopyright);
-		riadok7.addComponent(lblLicence);
-		riadok8.addComponent(lblTranslator);
 
 		SequentialGroup zvislaSkupina = grpLay.createSequentialGroup();
 
 		zvislaSkupina
 				.addGroup(riadok1).addGap(10).addGroup(riadok2).addGap(03)
 				.addGroup(riadok3).addGap(18).addGroup(riadok4).addGap(03)
-				.addGroup(riadok5).addGap(15).addGroup(riadok6).addGap(03)
-				.addGroup(riadok7).addGap(03).addGroup(riadok8);
+				.addGroup(riadok5).addGap(15).addGroup(popisnaSkupinaZvislo);
 
 		grpLay.setVerticalGroup(zvislaSkupina);
 	}
