@@ -11,11 +11,7 @@ import java.awt.SystemTray;
 import java.awt.Toolkit;
 import java.awt.TrayIcon;
 import java.awt.event.ActionListener;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.Locale;
-import java.util.prefs.*;
 
 import javax.swing.GroupLayout;
 import javax.swing.Icon;
@@ -25,6 +21,8 @@ import javax.swing.JLabel;
 //import javax.swing.JOptionPane;
 import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 /*
  * 29.3.2009:  Znemožnenie kontextovej ponuky ikony na podnose (aj dôsledku zaklopania na òu) poèas zobrazenie
@@ -253,7 +251,8 @@ import javax.swing.GroupLayout.SequentialGroup;
  * 30.03.2014: Tlaèidlo pre zmenu jazyka nahradené po¾om so zoznamom
  * 			   texty copyright-u, licencie a mena prekladate¾a zarovnané do¾ava
  * 
- * 31.03.2014  Texty copyright-u, licencie a mena prekladate¾a urobené ako jedna skupina
+ * 31.03.2014  Texty copyright-u, licencie a mena prekladate¾a urobené ako jedna skupina, prièom
+ *             texty v nej sú vodorovne centrované
  */
 
 public final class PripomenUI extends JFrame {
@@ -543,12 +542,18 @@ public final class PripomenUI extends JFrame {
 				.addComponent(lblMenitFarby);
 		
 		// Skupina pre copyright, licenciu a meno prekladate¾a
+		ParallelGroup popisnaSkupinaVodorovne = grpLay.createParallelGroup(GroupLayout.Alignment.CENTER);
 		SequentialGroup popisnaSkupinaZvislo  = grpLay.createSequentialGroup();
 		
-		popisnaSkupinaZvislo
-				.addComponent(lblCopyright)	.addGap(03)
-				.addComponent(lblLicence)	.addGap(03)
+		popisnaSkupinaVodorovne
+				.addComponent(lblCopyright)
+				.addComponent(lblLicence)
 				.addComponent(lblTranslator);
+		
+		popisnaSkupinaZvislo
+		.addComponent(lblCopyright)	.addGap(03)
+		.addComponent(lblLicence)	.addGap(03)
+		.addComponent(lblTranslator);
 
 		// Hlavné ståpce pre rozmiestnenie ovládacích prvkov (a ich skupín)
 		ParallelGroup stlpec1 = grpLay.createParallelGroup(GroupLayout.Alignment.TRAILING);
@@ -562,8 +567,7 @@ public final class PripomenUI extends JFrame {
 				.addGroup(farebnaSkupinaVodorovne)
 				.addGroup(casovaSkupinaVodorovne)
 				.addComponent(Const.chkJednorazovo)
-				.addComponent(lblCopyright).addComponent(lblLicence)
-				.addComponent(lblTranslator);
+				.addGroup(popisnaSkupinaVodorovne);
 
 		SequentialGroup vodorovnaSkupina = grpLay.createSequentialGroup();
 
@@ -577,12 +581,14 @@ public final class PripomenUI extends JFrame {
 		ParallelGroup riadok3 = grpLay.createParallelGroup(GroupLayout.Alignment.BASELINE);
 		ParallelGroup riadok4 = grpLay.createParallelGroup(GroupLayout.Alignment.BASELINE);
 		ParallelGroup riadok5 = grpLay.createParallelGroup(GroupLayout.Alignment.BASELINE);
+		ParallelGroup riadok6 = grpLay.createParallelGroup(GroupLayout.Alignment.BASELINE);
 
 		riadok1.addComponent(lblTitulok).addGroup(titulkovaSkupinaZvislo);
 		riadok2.addComponent(lblSprava) .addComponent(Const.txtSprava);
 		riadok3.addGroup	(farebnaSkupinaZvislo);
 		riadok4.addComponent(Const.lblCasOpak).addGroup(casovaSkupinaZvislo);
 		riadok5.addComponent(Const.chkJednorazovo);
+		riadok6.addGroup	(popisnaSkupinaVodorovne);
 
 		SequentialGroup zvislaSkupina = grpLay.createSequentialGroup();
 
@@ -628,34 +634,9 @@ public final class PripomenUI extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		Preferences prefs = Preferences.userNodeForPackage(PripomenUI.class);
-		int pocetSpusteni = prefs.getInt(Const.POCET_SPUSTENI, 0);
-
-		GregorianCalendar kalendar = new GregorianCalendar();
-		kalendar.setTime(new Date());
-		int dnesnyDen = kalendar.get(Calendar.DAY_OF_YEAR);
-
-		/*
-		 * Resetovania poèítadla spustených exemplárov programu pri prvom spustení v dni
-		 */
-		int denPoslSpust = prefs.getInt(Const.DEN_POSL_SPUST, 0);
-		if (denPoslSpust != dnesnyDen) {
-			pocetSpusteni = 0;
-			prefs.putInt(Const.DEN_POSL_SPUST, dnesnyDen);
-		}
-/*
-		if (pocetSpusteni != 0)
-			if (JOptionPane.showConfirmDialog(null, 
-							String.format(Const.OTAZKA, pocetSpusteni), 
-							Const.TITULOK_OTAZKY,
-							JOptionPane.YES_NO_OPTION) == JOptionPane.NO_OPTION) {
-				System.exit(0);
-			}
-*/		
-		prefs.putInt(Const.POCET_SPUSTENI, ++pocetSpusteni);
 /*
 		try {
-		    // Set System L&F
+			// Set System L&F
 //			UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
 	        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 	    } 

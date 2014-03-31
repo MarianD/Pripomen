@@ -129,9 +129,7 @@ final class Lokalizacia {
 		verzia			    = getString("Version");					// Text: Verzia
 		verzia			   += Const.VERZIA_END;
 		licence			    = getString("License");					// Text: Program mÙûete pouûÌvaù a öÌriù zadarmo.
-		licence 		    = Const.LICENCE_BEGIN + licence;
 		translator		    = getString("Translator");				// Text: Preklad do slovenËiny: Mari·n DÈneö
-		translator 		    = Const.TRANSLATOR_BEGIN + translator;
 		
 		hodina			    = getString("Hour1");					// Text: hodina
 		hodiny			    = getString("Hours24");					// Text: hodiny
