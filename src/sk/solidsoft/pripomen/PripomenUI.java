@@ -21,8 +21,6 @@ import javax.swing.JLabel;
 //import javax.swing.JOptionPane;
 import javax.swing.GroupLayout.ParallelGroup;
 import javax.swing.GroupLayout.SequentialGroup;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 
 /*
  * 29.3.2009:  Znemožnenie kontextovej ponuky ikony na podnose (aj dôsledku zaklopania na òu) poèas zobrazenie
@@ -638,7 +636,7 @@ public final class PripomenUI extends JFrame {
 		try {
 			// Set System L&F
 //			UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
-	        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+	        UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());	// ComboBox príliš úzky
 	    } 
 	    catch (UnsupportedLookAndFeelException e) {
 	       // handle exception

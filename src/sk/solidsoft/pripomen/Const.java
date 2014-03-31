@@ -18,7 +18,7 @@ import javax.swing.Timer;
  */
 final class Const {
 	
-	static final String   VERZIA_END        = " 40  (xx. x. 2014)";
+	static final String   VERZIA_END        = " 40  (31. 3. 2014)";
 	static final String   COPYRIGHT	   	    = "Copyright © RNDr. Marián Déneš, 2009-2014";
 	static final String	  EOL	            = System.getProperty("line.separator");
 	static final String   TAB               = "          ";
